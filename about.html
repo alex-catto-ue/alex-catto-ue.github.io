@@ -15,7 +15,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="current.html">Current</a>
                 </li>
-                <button class="nav-link" onclick="scrollToBottom()">Contact Us</button>
+                <li class="nav-item active">
+                    <a class="nav-link" href="contact_form.html">Contact form</a>
+                </li>
             </ul>  
         </nav>
 
@@ -114,38 +116,10 @@
                 </div>
             </div>
         </div>
-
-        <br>
-        <div class="container_mt-5">
-            <h1>Contact Us!</h1>
-            <form class="row g-3" action="https://formsubmit.co/174073c7509253e94afe7e09ec05d8e1" method="POST">
-                <div class="col-md-6">
-                    <label for="firstName" class="form-label">First Name</label>
-                    <input type="text" class="form-control" name="Name" id="firstName" required>
-                </div>
-                <div class="col-md-8">
-                    <label for="emailInfo" class="form-label">Email</label>
-                    <input type="email" class="form-control" name="Email" id="emailInfo" placeholder="example@.ex" required>
-                </div>
-                <div class="col-md-4">
-                    <label for="phoneNumber" class="form-label">Phone Number</label>
-                    <input type="text" class="form-control" name="Phone" id="phoneNumber" placeholder="+49 xxx xxx xxxxx">
-                </div>
-                <div class="col-md-12">
-                    <label for="comments" class="form-label">Message</label>
-                    <textarea class="form-control" id="comments" name="Comments" rows="3" required></textarea>
-                </div>
-                <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </form>
-        </div>
           
-        <script src="https://cdn.jsdelivr.net/npm/emailjs-com/dist/email.min.js"></script>
         <script src="https://smtpjs.com/v3/smtp.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="about.js"></script>
     </body>
 </html>

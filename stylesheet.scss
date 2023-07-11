@@ -1,0 +1,118 @@
+$primary: #0D1131;
+
+
+//Make website design simpler. too cluttery
+
+
+body {
+  background: #8953dc;
+  background: linear-gradient(180deg, #A460FB 0%, #6944B9 19.79%, #141345 55.73%, #0D1131 81.25%, #131947 90.62%, #202A7B 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div.p {
+  color: black;
+}
+
+.container {
+  margin: 3%;
+}
+
+.card{
+  margin: 5px;
+  opacity: .5;
+  
+  
+}
+
+//grid item code
+
+.col-d{
+  justify-content: center;
+  border-style: groove;
+  justify-items: center;
+  border-width: 7px;
+  text-align: center;
+
+
+}
+
+
+
+.grid-container  {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+}
+
+.grid-item {
+  background-color: #956397;
+  padding: 25px;
+  margin: 5px;
+  opacity: .5;
+}
+
+.grid-container-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-content: center;
+  column-gap: 10px;
+  margin:auto;
+  width: 100%;
+  padding: 0;
+ 
+  overflow-x: auto;
+}
+
+.card-text {
+  color: black;
+}
+
+.card-img-top {
+  margin: 5px;
+}
+
+//contact us
+.contactus-section {
+  position: absolute;
+  left: 20%
+}
+
+.form-group {
+  width:200%;
+}
+
+.contactus-section {
+  text-align: center;
+}
+
+#errorContainer {
+  color: red;
+  font-weight: bold;
+}
+
+.logo-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo {
+  width: 200px;
+  height: 50px;
+}
+
+.loading-text {
+  margin-top: 10px;
+}
+
+@import "node_modules/bootstrap/scss/bootstrap";

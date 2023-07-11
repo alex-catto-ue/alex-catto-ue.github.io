@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Current Weather</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-primary m-0 p-0 justify-content-between">
+        <a class="navbar-brand" href="#" id="logo">
+            <img src="Resources\Logo2.png" width="200px" height="50px" class="d-inline-block align-top" alt="">
+        </a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+            </li>
+        </ul>
+        <form class="form-inline input-group" id="search-form">
+            <input class="form-control mr-sm-2" type="search" id="search-input" placeholder="Search" aria-label="Search" @input="handleSearchInput" data-search-id="city-search">                
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" id="toggleUnitsBtn">C/F</button>
+        </form>       
+    </nav>
+
+    <div id="errorContainer"></div>
+    
+    <div class="container">
+        <div class="row d-flex overflow-auto align-items-stretch">
+            <div class="col-md-auto d-flex">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Current Weather</h5>
+                        <div id="cityName"></div>
+                        <div id="temp"></div>
+                        <div id="main"></div>
+                        <img id = 'currentBigIcon' width="100" height="100">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-auto d-flex">
+                <div class="card flex-fill">
+                    <div class="card-body">
+                        <h5 class="card-title">Hourly forecast</h5>
+                        <div class="grid-container d-flex align-items-center justify-content-center overflow-auto">
+                            <div class="col-d text-center">
+                                <p id = "h1a"></p>
+                                <img id="h1img" src="" alt="" height="50px" width="50px">
+                                <p id = "h1"></p>
+                            </div>
+                            <div class="col-d text-center">
+                                <p id = "h2a"></p>
+                                <img id="h2img" src="" alt="" height="50px" width="50px">
+                                <p id = "h2"></p>
+                            </div>
+                            <div class="col-d text-center">
+                                <p id = "h3a"></p>
+                                <img id="h3img" src="" alt="" height="50px" width="50px">
+                                <p id = "h3"></p>
+                            </div>
+                            <div class="col-d text-center">
+                                <p id = "h4a"></p>
+                                <img id="h4img" src="" alt="" height="50px" width="50px">
+                                <p id = "h4"></p>
+                            </div>
+                            <div class="col-d text-center">
+                                <p id = "h5a"></p>
+                                <img id="h5img" src="" alt="" height="50px" width="50px">
+                                <p id = "h5"></p>
+                            </div>
+                            <div class="col-d text-center">
+                                <p id = "h6a"></p>
+                                <img id="h6img" src="" alt="" height="50px" width="50px">
+                                <p id = "h6"></p>
+                            </div>
+                            <div class="col-d text-center">
+                                <p id = "h7a"></p>
+                                <img id="h7img" src="" alt="" height="50px" width="50px">
+                                <p id = "h7"></p>
+                            </div>
+                            <div class="col-d text-center">
+                                <p id = "h8a"></p>
+                                <img id="h8img" src="" alt="" height="50px" width="50px">
+                                <p id = "h8"></p>
+                            </div>
+                            <div class="col-d text-center">
+                                <p id = "h9a"></p>
+                                <img id="h9img" src="" alt="" height="50px" width="50px">
+                                <p id = "h9"></p>
+                            </div>        
+                            <div class="col-d text-center">
+                                <p id = "h10a"></p>
+                                <img id="h10img" src="" alt="" height="50px" width="50px">
+                                <p id = "h10"></p>
+                            </div>            
+                            <div class="col-d text-center">
+                                <p id = "h11a"></p>
+                                <img id="h11img" src="" alt="" height="50px" width="50px">
+                                <p id = "h11"></p>
+                            </div>
+                            <div class="col-d text-center">
+                                <p id = "h12a"></p>
+                                <img id="h12img" src="" alt="" height="50px" width="50px">
+                                <p id = "h12"></p>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Sunrise and Sunset</h5>
+                        <div class="d-flex flex-row">
+                            <div class="p-2" id="sunrise"></div>
+                            <div class="p-2"><img src="Resources\svg\wi-horizon-alt.svg" height = "40px" width="40px"></div>
+                            <div class="p-2" id="sunset"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Feels like</h5>
+                        <div class="d-flex flex-row">
+                            <div class="p-2"><img src="Resources/svg/temperature.svg" height = "40px" width="40px"></div>
+                            <div class="p-2 flex-grow-1" id="Feels_like"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">7 day forecast</h5>
+                        <div class="grid-container-week flex-column">
+                            <div class="col-d justify-content-center text-center">
+                                <p id = "d1a"></p>
+                                <img id="d1img" src="" alt="" height="50px" width="50px">
+                                <p id = "d1"></p>
+                            </div>
+                            <div class="col-d justify-content-center text-center">
+                                <p id = "d2a"></p>
+                                <img id="d2img" src="" alt="" height="50px" width="50px">
+                                <p id = "d2"></p>
+                            </div>
+                            <div class="col-d justify-content-center text-center">
+                                <p id = "d3a"></p>
+                                <img id="d3img" src="" alt="" height="50px" width="50px">
+                                <p id = "d3"></p>
+                            </div>
+                            <div class="col-d justify-content-center text-center">
+                                <p id = "d4a"></p>
+                                <img id="d4img" src="" alt="" height="50px" width="50px">
+                                <p id = "d4"></p>
+                            </div>
+                            <div class="col-d justify-content-center text-center">
+                                <p id = "d5a"></p>
+                                <img id="d5img" src="" alt="" height="50px" width="50px">
+                                <p id = "d5"></p>
+                            </div>
+                            <div class="col-d justify-content-center text-center">
+                                <p id = "d6a"></p>
+                                <img id="d6img" src="" alt="" height="50px" width="50px">
+                                <p id = "d6"></p>
+                            </div>
+                            <div class="col-d justify-content-center text-center">
+                                <p id = "d7a"></p>
+                                <img id="d7img" src="" alt="" height="50px" width="50px">
+                                <p id = "d7"></p>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">                
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Humidity</h5>
+                        <div class="d-flex flex-row">
+                            <div class="p-2"><img src="Resources/svg/humidity.svg" height = "40px" width="40px"></div>
+                            <div class="p-2 flex-grow-1" id="Humidity"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Wind</h5>
+                        <div class="d-flex flex-row">
+                            <div class="p-2"><img src="Resources/svg/wind.svg" height = "40px" width="40px"></div>
+                            <div class="p-2 flex-grow-1" id="Wind_s"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">UV index</h5>
+                        <div class="d-flex flex-row">
+                            <div class="p-2"><img src="Resources/svg/uv-index-alt.svg" height = "40px" width="40px"></div>
+                            <div class="p-2 flex-grow-1" id="UV_index"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Dew point</h5>
+                        <div class="d-flex flex-row">
+                            <div class="p-2"><img src="Resources/svg/dew_point.svg" height = "40px" width="40px"></div>
+                            <div class="p-2 flex-grow-1" id="Dew_point"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="Pressure">
+                        <div class="card-body">
+                            <h5 class="card-title">Pressure</h5>
+                            <div class="d-flex flex-row">
+                                <div class="p-2"><img src="Resources/svg/pressure.svg" height = "40px" width="40px"></div>
+                                <div class="p-2 flex-grow-1" id="Pressure"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="current.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

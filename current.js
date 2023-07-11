@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function getCityCoordinates(cityName) {
         try {
-            const url = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=221f9aa3d26d45612174323bcf3a5760`;
+            const url = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=221f9aa3d26d45612174323bcf3a5760`;
             const response = await fetch(url);
             const data = await response.json();
 
@@ -255,7 +255,7 @@ function setCityAndCountry(cityName, country) {
 
     async function getCityCoords(lat, lon) {
         try {
-            const apiUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=221f9aa3d26d45612174323bcf3a5760`;
+            const apiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=221f9aa3d26d45612174323bcf3a5760`;
             const response = await fetch(apiUrl);
             const data = await response.json();
 

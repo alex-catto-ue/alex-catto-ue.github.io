@@ -122,7 +122,7 @@ function setCityAndCountry(cityName, country) {
             searchInput.value = ''; // Set the value to an empty string
         } 
         catch (err) {
-            displayErrorMessage(error.message);
+            displayErrorMessage(err.message);
         }
     }
 

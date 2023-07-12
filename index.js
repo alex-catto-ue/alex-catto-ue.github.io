@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       );
     });
   }
-  
+
   try {
     // Get geolocation coordinates
     const coordinates = await getGeolocation();
